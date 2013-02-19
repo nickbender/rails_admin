@@ -8,6 +8,11 @@ module RailsAdmin
       DISABLED_COLUMN_MATCHERS = [/_array$/]
 
       def ar_adapter
+        puts "AR_ADAPTER: rails: #{Rails.inspect}"
+        puts "AR_ADAPTER: conf: #{Rails.configuration.inspect}"
+        puts "AR_ADAPTER: db_conf: #{Rails.configuration.database_configuration.inspect}"
+        puts "AR_ADAPTER: env: #{Rails.env.inspect}"
+        puts "AR_ADAPTER: all: #{Rails.configuration.database_configuration[Rails.env]['adapter'].inspect}"
         Rails.configuration.database_configuration[Rails.env]['adapter']
       end
 
